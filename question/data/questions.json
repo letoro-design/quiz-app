@@ -21,7 +21,7 @@
     "options": ["太郎右衛門", "鍋太郎", "山形丸", "最上川号"],
     "answer": 1,
     "explanation": "直径6.5メートルもの巨大な鍋は「鍋太郎（なべたろう）」の愛称で親しまれています。",
-    "image": "data/images/nabetaro.jpg"
+    "image": "images/nabetaro.jpg"
   },
   {
     "id": 4,
@@ -69,7 +69,7 @@
     "options": ["山形市", "天童市", "東根市", "寒河江市"],
     "answer": 1,
     "explanation": "天童市は将棋駒の街として世界的に有名です。",
-    "image": "data/images/shougi.jpg"
+    "image": "images/shougi.jpg"
   },
   {
     "id": 10,
@@ -77,7 +77,7 @@
     "options": ["尾花沢市", "大石田町", "村山市", "舟形町"],
     "answer": 0,
     "explanation": "大正ロマン漂う町並みで人気の銀山温泉は、尾花沢市にあります。",
-    "image": "data/images/ginzan.jpg"
+    "image": "images/ginzan.jpg"
   },
   {
     "id": 11,
@@ -85,7 +85,7 @@
     "options": ["雪像", "氷壁", "樹氷", "氷柱"],
     "answer": 2,
     "explanation": "「スノーモンスター」とも呼ばれる樹氷は、蔵王の冬の風物詩です。",
-    "image": "data/images/juhyo.jpg"
+    "image": "images/juhyo.jpg"
   },
   {
     "id": 12,
