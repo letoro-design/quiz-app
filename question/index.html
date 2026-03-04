@@ -48,7 +48,7 @@
                 
                 qDiv.innerHTML = `
                     <h3>問${index + 1}. ${q.question}</h3>
-                    ${q.image ? `<img src="${q.image}" class="quiz-img">` : ''}
+                    ${q.image ? `<img src="${q.image}" width="200" class="quiz-img">` : ''}
                     <div class="options">
                         ${q.options.map((opt, i) => `
                             <label>

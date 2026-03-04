@@ -57,6 +57,7 @@
 
             detailDiv.innerHTML = `
                 <h4>問${i + 1}. ${q.question}</h4>
+                ${q.image ? `<img src="${q.image}" width="200" class="quiz-img">` : ''}
                 <ul>
                     ${q.options.map((opt, index) => {
                         let label = "";
