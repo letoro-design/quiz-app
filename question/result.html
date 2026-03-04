@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>結果発表 - やまがた検定</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <nav id="side-nav" class="side-nav">
+        <p>ジャンプ</p>
+        <a href="#result-header">点数/ランク</a>
+        <a href="#res-1">1問目</a>
+        <a href="#res-10">10問目</a>
+        <a href="#res-20">20問目</a>
+        <a href="#res-30">30問目</a>
+        <a href="#res-40">40問目</a>
+        <a href="#top">一番上へ</a>
+    </nav>
+
+    <div class="container" id="top">
+        <h1>検定結果</h1>
+        <div id="result-header" class="result-card"></div>
+        <div id="result-details"></div>
+        <button onclick="location.href='../index.html'" class="btn">トップへ戻る</button>
+    </div>
+
+    <script>
+        const results = JSON.parse(localStorage.getItem('quizResults'));
+        let score = 0;
+
+        results.forEach(q => {
+            if (q.selected === q.answer) score += 2;
+        });
+
+        let rank = "不合格";
+        if (score >= 80) rank = "1級";
+        else if (score >= 70) rank = "2級";
+        else if (score >= 60) rank = "3級";
+
+        document.getElementById('result-header').innerHTML = `
+            <h2>得点：${score}点</h2>
+            <h3>ランク：${rank}</h3>
+        `;
+
+        const details = document.getElementById('result-details');
+        results.forEach((q, i) => {
+            const isCorrect = q.selected === q.answer;
+            const detailDiv = document.createElement('div');
+            detailDiv.className = `result-block ${isCorrect ? 'correct' : 'wrong'}`;
+
+            // クイックナビ用のIDを付与（問1, 10, 20, 30, 40）
+            const qNum = i + 1;
+            if ([1, 10, 20, 30, 40].includes(qNum)) {
+                detailDiv.id = `res-${qNum}`;
+            }
+
+            detailDiv.innerHTML = `
+                <h4>問${i + 1}. ${q.question}</h4>
+                <ul>
+                    ${q.options.map((opt, index) => {
+                        let label = "";
+                        if (index === q.answer) label = " <span class='correct-txt'>◯正解</span>";
+                        if (index === q.selected && !isCorrect) label = " <span class='wrong-txt'>✕不正解</span>";
+                        return `<li class="${index === q.answer ? 'ans-li' : ''}">${opt}${label}</li>`;
+                    }).join('')}
+                </ul>
+                <div class="explanation">
+                    <strong>【解説】</strong><br>${q.explanation}
+                </div>
+            `;
+            details.appendChild(detailDiv);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+@charset "utf-8";
+
+* {
+  box-sizing: border-box;
+}
+
+body { font-family: sans-serif; background: #f4f7f6; color: #333; line-height: 1.6; }
+.container { max-width: 800px; margin: 20px auto; padding: 20px; background: white; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+.question-block, .result-block { border-bottom: 2px solid #eee; padding: 20px 0; }
+.quiz-img { max-width: 100%; height: auto; border-radius: 5px; margin: 10px 0; }
+.options label { display: block; margin: 10px 0; cursor: pointer; }
+.btn { display: block; width: 100%; padding: 15px; background: #e67e22; color: white; border: none; border-radius: 5px; font-size: 1.2rem; cursor: pointer; margin-top: 20px; }
+.btn:hover { background: #d35400; }
+.result-card { text-align: center; background: #ecf0f1; padding: 20px; border-radius: 8px; margin-bottom: 20px; }
+.correct-txt { color: #27ae60; font-weight: bold; }
+.wrong-txt { color: #e74c3c; font-weight: bold; }
+.explanation { background: #fef9e7; padding: 15px; margin-top: 10px; border-left: 5px solid #f1c40f; }
+.ans-li { font-weight: bold; }
+
+/* 右側固定ナビゲーション */
+.side-nav {
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 90px;
+    background: rgba(44, 62, 80, 0.9); /* 結果ページは少し落ち着いた紺色にするのもアリ */
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    z-index: 100;
+}
+
+.side-nav p {
+    color: white;
+    font-size: 0.7rem;
+    text-align: center;
+    margin: 0;
+    font-weight: bold;
+}
+
+.side-nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.8rem;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 5px;
+    text-align: center;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.side-nav a:hover {
+    background: white;
+    color: #e67e22;
+}
+
+/* 結果ブロックのデザイン強化 */
+.result-block {
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: 2px solid #eee;
+}
+
+.result-block.correct {
+    border-color: #27ae60;
+    background-color: #fafffa; /* 正解は薄い緑背景 */
+}
+
+.result-block.wrong {
+    border-color: #e74c3c;
+    background-color: #fffaf9; /* 不正解は薄い赤背景 */
+}
+
+/* 解説部分をさらに目立たせる */
+.explanation {
+    background: #fff;
+    border: 1px solid #f1c40f;
+    padding: 15px;
+    margin-top: 15px;
+    border-radius: 5px;
+}
+
+/* アンカーリンク先がヘッダーで隠れないように余白を調整 */
+:target {
+    scroll-margin-top: 20px;
+}
+
+/* スムーズスクロールの設定 */
+html {
+    scroll-behavior: smooth;
+}
+
+/* レスポンシブ対応：画面が狭いときは少し小さくする */
+@media (max-width: 900px) {
+    .side-nav {
+        right: 5px;
+        width: 60px;
+    }
+    .side-nav a {
+        font-size: 0.7rem;
+    }
+}
+
+/* 非常に狭いスマホ画面では非表示、または下部に移動する設定（任意） */
+/*
+@media (max-width: 600px) {
+    .side-nav {
+        display: none;
+    }
+}
+*/

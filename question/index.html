@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>出題ページ - やまがた検定</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <nav id="side-nav" class="side-nav">
+        <p>ジャンプ</p>
+        <a href="#q-1">1問目</a>
+        <a href="#q-10">10問目</a>
+        <a href="#q-20">20問目</a>
+        <a href="#q-30">30問目</a>
+        <a href="#q-40">40問目</a>
+        <a href="#submit-area">最後へ</a>
+    </nav>
+
+    <div class="container">
+        <form id="quiz-form">
+            <div id="questions-container"></div>
+            <div id="submit-area">
+                <button type="button" onclick="calculateScore()" class="btn">検定結果を見る</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        let allQuestions = [];
+
+        async function loadQuestions() {
+            const response = await fetch('data/questions.json');
+            const data = await response.json();
+            // シャッフルして50問抽出
+            allQuestions = data.sort(() => 0.5 - Math.random()).slice(0, 50);
+            
+            const container = document.getElementById('questions-container');
+            allQuestions.forEach((q, index) => {
+                const qDiv = document.createElement('div');
+                qDiv.className = 'question-block';
+
+                // 1, 10, 20, 30, 40問目にIDをセット
+                const qNum = index + 1;
+                if ([1, 10, 20, 30, 40].includes(qNum)) {
+                    qDiv.id = `q-${qNum}`;
+                }
+                
+                qDiv.innerHTML = `
+                    <h3>問${index + 1}. ${q.question}</h3>
+                    ${q.image ? `<img src="${q.image}" class="quiz-img">` : ''}
+                    <div class="options">
+                        ${q.options.map((opt, i) => `
+                            <label>
+                                <input type="radio" name="q${index}" value="${i}" required> ${opt}
+                            </label>
+                        `).join('')}
+                    </div>
+                `;
+                container.appendChild(qDiv);
+            });
+        }
+
+        function calculateScore() {
+            const form = document.getElementById('quiz-form');
+            if (!form.checkValidity()) {
+                alert("未回答の問題があります。");
+                return;
+            }
+
+            const answers = allQuestions.map((q, i) => {
+                const selected = document.querySelector(`input[name="q${i}"]:checked`).value;
+                return { ...q, selected: parseInt(selected) };
+            });
+
+            // 結果を一時的に保存して遷移
+            localStorage.setItem('quizResults', JSON.stringify(answers));
+            location.href = 'result.html';
+        }
+
+        loadQuestions();
+    </script>
+</body>
+</html>
