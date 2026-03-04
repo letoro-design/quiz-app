@@ -5,7 +5,7 @@
     "options": ["ラ・フランス", "さくらんぼ", "ブドウ", "リンゴ"],
     "answer": 1,
     "explanation": "さくらんぼ（佐藤錦など）は山形県を代表する果物で、生産量は日本一です。",
-    "image": "images/sakuranbo.jpg"
+    "image": ""
   },
   {
     "id": 2,
@@ -13,7 +13,7 @@
     "options": ["羽黒山", "山寺（立石寺）", "最上川", "上山城"],
     "answer": 1,
     "explanation": "山形市の「山寺（立石寺）」で詠まれた名句として非常に有名です。",
-    "image": "images/yamadera.jpg"
+    "image": ""
   },
   {
     "id": 3,
@@ -45,7 +45,7 @@
     "options": ["伊達政宗", "上杉鷹山", "最上義光", "直江兼続"],
     "answer": 1,
     "explanation": "上杉鷹山（治憲）は、米沢藩の財政を立て直した名君として知られています。",
-    "image": "images/yozan.jpg"
+    "image": ""
   },
   {
     "id": 7,
@@ -69,7 +69,7 @@
     "options": ["山形市", "天童市", "東根市", "寒河江市"],
     "answer": 1,
     "explanation": "天童市は将棋駒の街として世界的に有名です。",
-    "image": "images/shogi.jpg"
+    "image": "images/shougi.jpg"
   },
   {
     "id": 10,
@@ -109,7 +109,7 @@
     "options": ["加茂水族館", "上越市立水族博物館", "浅虫水族館", "アクアマリンふくしま"],
     "answer": 0,
     "explanation": "鶴岡市にある加茂水族館（クラゲドリーム館）は、クラゲ特化型の水族館として有名です。",
-    "image": "images/kamo.jpg"
+    "image": ""
   },
   {
     "id": 15,
@@ -141,7 +141,7 @@
     "options": ["新庄まつり", "山形花笠まつり", "米沢上杉まつり", "酒田まつり"],
     "answer": 1,
     "explanation": "花笠音頭に合わせて踊る、東北五大祭りの一つに数えられる祭りです。",
-    "image": "images/hanagasa.jpg"
+    "image": ""
   },
   {
     "id": 19,
@@ -149,7 +149,7 @@
     "options": ["新庄まつり", "黒川能", "アマハゲ", "延年の舞"],
     "answer": 0,
     "explanation": "新庄まつりの山車行事は、2016年にユネスコ無形文化遺産に登録されました。",
-    "image": "images/shinjo.jpg"
+    "image": ""
   },
   {
     "id": 20,
